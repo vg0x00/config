@@ -1,64 +1,55 @@
-;; window config
-(setq inhibit-splash-screen t
-      inhibit-startup-message t
-      initial-scratch-message nil)
-(tool-bar-mode -1)
-(scroll-bar-mode -1)
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
-(global-linum-mode t)
-(prefer-coding-system 'utf-8)
-(split-window-horizontally)
-(setq backup-directory-alist '(("." . "~/Documents/config/emacs/backups")))
-(setq delete-old-versions -1)
+
+;; UTF-8 
+(prefer-coding-system 'utf-8)           
+(set-language-environment "UTF-8")
+(set-default-coding-systems 'utf-8)
+
+(setq initial-buffer-choice t
+      initial-scratch-message nil
+      initial-major-mode 'text-mode
+      ring-bell-function 'ignore)
+
+(when (window-system)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1)
+  (set-default-font "Fira Code")
+  (global-linum-mode -1)
+  (setq linum-format "%3d"))
+
+(set-face-attribute 'default nil :font "Fira Code Retina-13")
+
+;; backup file
+(setq backup-directory-alist '(("." . "~/Documents/config/emacs/backups"))
+      delete-old-versions t
+      keep-new-versions 6
+      keep-old-versions 4
+      version-control t
+			js-indent-level 2
+      auto-save-default nil)
+;; disable auto save feature will not create file like: #filename#
+
 (display-time-mode t)
 (fset 'yes-or-no-p 'y-or-n-p)
-(global-hl-line-mode t)
 (blink-cursor-mode -1)
-(setq-default major-mode 'text-mode)
-(add-to-list 'custom-theme-load-path "~/Documents/config/emacs/themes")
-(load-theme 'wu t)
+(transient-mark-mode -1)
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; tab indent line or insert tabs be smart
-(setq indent-tabs-mode t
-      tab-always-indent nil
-      indent-line-function 'insert-tab
-      tab-width 4)
+(setq-default indent-tabs-mode nil
+              tab-width 2
+              tab-always-indent nil
+              c-basic-offset 2
+              ;; indent-line-function 'insert-tab
+              major-mode 'text-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
 ;; navigation
 (global-set-key (kbd "s-w") 'other-window)
 
+;; (load-file "~/.emacs.d/nand2tetris.el")
 
-;; settings for nand2tetris project
-(defun hook-to-mode (mode extension-list)
-  (dolist (extension extension-list)
-    (add-to-list 'auto-mode-alist
-		 (cons extension mode))))
-(hook-to-mode 'c-mode (list
-		       "\\.hdl$"
-		       "\\.tst$"
-		       "\\.cmp$"))
-
-(defun open-nand2tris-hdl-tst-files ()
-  "open .hdl and .tst files in the given project sub-diretory"
-  (interactive)
-  (setq names (split-string (read-string "index file-name: ")))
-  (when (equal (length names) 2)
-    (setq index (concat (car names) "/"))
-    (setq file-name (nth 1 names))
-    (setq base-dir-path "~/Downloads/nand2tetris/projects/")
-    (save-excursion
-      (other-window 1)   	
-      (find-file (concat base-dir-path index file-name ".tst"))
-      (other-window 1)
-      (find-file (concat base-dir-path index file-name ".hdl"))
-      )))
-(global-set-key (kbd "C-c o") 'open-nand2tris-hdl-tst-files)
-
-(defun run-hardware-simulator ()
-  "open hardware simulator from emacs"
-  (interactive)
-  (call-process "~/Downloads/nand2tetris/tools/HardwareSimulator.sh"))
-(global-set-key (kbd "C-c r") 'run-hardware-simulator)
-
-
+;; load customize theme -> wu
+(add-to-list 'custom-theme-load-path "~/Documents/config/emacs/themes")
+(load-theme 'wu t)
+;;(load-theme 'tango-dark t)
