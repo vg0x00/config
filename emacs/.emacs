@@ -79,6 +79,9 @@
 ;; keybindings ;;
 ;;;;;;;;;;;;;;;;;
 
+;; compile
+(global-set-key (kbd "s-r") 'compile)
+
 ;; comment and uncomment
 (global-set-key (kbd "s-;") 'comment-dwim) ; add comment at the end
 (global-set-key (kbd "s-/") 'comment-or-uncomment-region) 
@@ -298,5 +301,7 @@
                        ;; prefix c-u will skip anonymous function
                        ;; only enable company mode in go-mode
                        (set (make-local-variable 'company-backends) '(company-go))
+                       (set (make-local-variable 'compile-command) "go run main.go")
+                       (setq-local compilation-read-command nil) ;; disable for prompt
                        (company-mode)
                        )))
