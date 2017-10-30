@@ -1,0 +1,1 @@
+/Users/vg0x00/Documents/dev/gocode/src/github.com/nsf/gocode/emacs-company/company-go.el
