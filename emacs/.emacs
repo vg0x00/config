@@ -239,19 +239,17 @@
   (define-key company-active-map (kbd "C-p") #'company-select-previous))
 
 
-;;;;;;;;;;;;;;;;;;
-;; elisp mode ;;
-;;;;;;;;;;;;;;;;;;
-
+;;;;;;;;;;;;;;;;;
+;; eelisp mode ;;
+;;;;;;;;;;;;;;;;;
 (add-hook 'emacs-lisp-mode-hook
           (lambda () (progn
                        (set (make-local-variable 'company-backends) '(company-elisp))
                        (company-mode))))
 
-;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;
 ;; cc mode ;;
-;;;;;;;;;;;;;;;
-
+;;;;;;;;;;;;;
 (add-hook 'c++-mode-hook
           (lambda () (progn
                        (setq-local compile-command "/bin/bash ./build.sh")
@@ -319,6 +317,7 @@
 ;;;;;;;;;;;
 ;; cmake ;;
 ;;;;;;;;;;;
+
 (add-to-list 'load-path "/Users/vg0x00/Documents/config/emacs/elisp/cmake.el")
 ;; tips: generate a auto-load file using command: update-file-autoloads
 (require 'cmake-mode-load)
@@ -327,9 +326,9 @@
        '(("CMakeLists\\.txt\\'" . cmake-mode))
        auto-mode-alist))
 
-;;;;;;;;;;;;;;;;;;;;;;;;
-;; Font Fira Code ;;
-;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;
+;; Font FiraCode ;;
+;;;;;;;;;;;;;;;;;;;
 
 ;; This works when using emacs --daemon + emacsclient
 (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
@@ -386,7 +385,7 @@
             ("\\(\\.\\.\\.\\)"             #Xe126)
             ("\\(\\?=\\)"                  #Xe127)
             ("\\(\\?\\?\\)"                #Xe128)
-            ("\\(;;\\)"                    #Xe129)
+;;            ("\\(;;\\)"                    #Xe129)
             ("\\(/\\*\\)"                  #Xe12a)
             ("\\(/\\*\\*\\)"               #Xe12b)
             ("\\(/=\\)"                    #Xe12c)
