@@ -149,7 +149,8 @@
 (global-set-key (kbd "<s-right>") 'right-word)
 (global-set-key (kbd "<s-up>") 'backward-paragraph)
 (global-set-key (kbd "<s-down>") 'forward-paragraph)
-(global-set-key (kbd "<s-S-left>") 'backward-sexp) ;jump backward to balanced expression, like {}, ""
+;jump backward to balanced expression, like {}, ""
+(global-set-key (kbd "<s-S-left>") 'backward-sexp) 
 (global-set-key (kbd "<s-S-right>") 'forward-sexp)
 (global-set-key (kbd "s-K") 'kill-sexp) ; kill balanced expression
 
@@ -238,7 +239,8 @@
 (global-set-key (kbd "s-=") 'dabbrev-expand)
 
 ;; company-mode (company mode is enabled only in elisp-mode and go-mode)
-(add-to-list 'load-path "/Users/vg0x00/Documents/config/emacs/elisp/company-mode")
+(add-to-list 'load-path
+             "/Users/vg0x00/Documents/config/emacs/elisp/company-mode")
 (require 'company)
 (with-eval-after-load 'company
   (define-key company-active-map (kbd "M-n") nil)
@@ -253,7 +255,8 @@
 ;;;;;;;;;;;;;;;;;
 (add-hook 'emacs-lisp-mode-hook
           (lambda () (progn
-                       (set (make-local-variable 'company-backends) '(company-elisp))
+                       (set (make-local-variable 'company-backends)
+                            '(company-elisp))
                        (company-mode))))
 
 ;;;;;;;;;;;;;
@@ -276,7 +279,8 @@
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; go-eldoc
-(add-to-list 'load-path "/Users/vg0x00/Documents/config/emacs/elisp/emacs-go-eldoc")
+(add-to-list 'load-path
+             "/Users/vg0x00/Documents/config/emacs/elisp/emacs-go-eldoc")
 (require 'go-eldoc)
 (add-hook 'go-mode-hook 'go-eldoc-setup)
 
@@ -285,7 +289,8 @@
 (add-hook 'go-mode-hook 'go-guru-hl-identifier-mode)
 
 ;; company-go
-(add-to-list 'load-path "/Users/vg0x00/Documents/config/emacs/elisp/company-go.el")
+(add-to-list 'load-path
+             "/Users/vg0x00/Documents/config/emacs/elisp/company-go.el")
 (require 'company-go)
 
 ;; go-mode local keybindings
@@ -340,10 +345,12 @@
 ;;;;;;;;;;;;;;;;;;;
 
 ;; This works when using emacs --daemon + emacsclient
-;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
+;; (add-hook 'after-make-frame-functions
+;; (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
 ;; This works when using emacs without server/client
 (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")
-;; I haven't found one statement that makes both of the above situations work, so I use both for now
+;; I haven't found one statement that makes both of the above situations work,
+;; so I use both for now
 
 (defconst fira-code-font-lock-keywords-alist
   (mapcar (lambda (regex-char-pair)
@@ -470,3 +477,12 @@
 
 (add-hook 'prog-mode-hook
           #'add-fira-code-symbol-keywords)
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; whitespace mode ;;
+;;;;;;;;;;;;;;;;;;;;;
+(setq-default
+ whitespace-line-column 80
+ whitespace-style       '(face lines-tail))
+(add-hook 'prog-mode-hook #'whitespace-mode)

@@ -29,6 +29,8 @@
  '(company-scrollbar-bg ((t (:background "#121212"))))
  '(company-scrollbar-fg ((t (:background "#121212"))))
  '(eldoc-highlight-function-argument ((t (:inherit bold :foreground "#00ee76" :underline t :weight bold))))
+ ;; whitespace-mode for 80 columns
+ '(whitespace-line ((t (:foreground "IndianRed4"))))
 )
 
 (provide-theme 'wu)
