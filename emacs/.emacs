@@ -106,15 +106,21 @@
 ;; C-x 3: split window right
 ;; C-x o: switch to other window (rebinded to s-w)
 ;; quit window
-(global-set-key (kbd "C-q") 'quit-window)
+(global-set-key (kbd "C-q") 'delete-window)
 ;; jump back from tag mark
 (global-set-key (kbd "C-`") 'pop-tag-mark)
+
 ;; enable winner mode
 ;; undo window changes: C-c <-
 ;; redo window chanegs: C-c ->
 (winner-mode t)
-;; jump between window using S-left,right,up,down
-;; (windmove-default-keybindings) 
+
+;; window navigation
+(global-set-key (kbd "<s-C-left>") 'windmove-left)
+(global-set-key (kbd "<s-C-right>") 'windmove-right)
+(global-set-key (kbd "<s-C-up>") 'windmove-up)
+(global-set-key (kbd "<s-C-down>") 'windmove-down)
+
 
 ;;;;;;;;;;;;
 ;; frames ;;
@@ -228,6 +234,9 @@
 ;; auto completion: company mode ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; basic completion based on buffer
+(global-set-key (kbd "s-=") 'dabbrev-expand)
+
 ;; company-mode (company mode is enabled only in elisp-mode and go-mode)
 (add-to-list 'load-path "/Users/vg0x00/Documents/config/emacs/elisp/company-mode")
 (require 'company)
@@ -240,7 +249,7 @@
 
 
 ;;;;;;;;;;;;;;;;;
-;; eelisp mode ;;
+;; elisp mode ;;
 ;;;;;;;;;;;;;;;;;
 (add-hook 'emacs-lisp-mode-hook
           (lambda () (progn
@@ -331,7 +340,7 @@
 ;;;;;;;;;;;;;;;;;;;
 
 ;; This works when using emacs --daemon + emacsclient
-(add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
+;; (add-hook 'after-make-frame-functions (lambda (frame) (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")))
 ;; This works when using emacs without server/client
 (set-fontset-font t '(#Xe100 . #Xe16f) "Fira Code Symbol")
 ;; I haven't found one statement that makes both of the above situations work, so I use both for now
