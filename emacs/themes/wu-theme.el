@@ -31,6 +31,8 @@
  '(eldoc-highlight-function-argument ((t (:inherit bold :foreground "#00ee76" :underline t :weight bold))))
  ;; whitespace-mode for 80 columns
  '(whitespace-line ((t (:foreground "IndianRed4"))))
+ ;; show-paren-mode
+ '(show-paren-match-face (( t (:background "firebrick3"))))
 )
 
 (provide-theme 'wu)

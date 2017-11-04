@@ -16,7 +16,6 @@
 
 (add-to-list 'custom-theme-load-path "~/Documents/config/emacs/themes")
 (load-theme 'wu t)
-;;(load-theme 'tango-dark t)
 
 (setq initial-buffer-choice t
       initial-scratch-message nil
@@ -37,6 +36,12 @@
   (setq linum-format "%3d"))
 
 (set-face-attribute 'default nil :font "Fira Code Retina-13")
+
+;; balance parentheses - show-paren-mode
+(show-paren-mode t)
+(setq show-paren-style 'parenthesis)
+(setq show-paren-delay 0)
+
 (ido-mode t)
 (menu-bar-mode -1)
 (display-time-mode t)
@@ -162,7 +167,6 @@
 
 ;; buffer
 (global-set-key (kbd "s-b") 'ido-switch-buffer)
-(global-set-key (kbd "s-B") 'ido-switch-buffer-other-window)
 (global-set-key (kbd "s-k") 'ido-kill-buffer)
 (global-set-key (kbd "s-S") 'ido-write-file)
 ;; C-v: scroll down
@@ -170,6 +174,32 @@
 ;; C-M-v: scroll down other window 
 ;; C-M-S-v: scroll up other window
 ;; C-l: recenter current position
+
+;;;;;;;;;;;;;
+;; ibuffer ;;
+;;;;;;;;;;;;;
+
+(global-set-key (kbd "C-x b") 'ibuffer)
+;; group ibuffer by name and mode
+(setq ibuffer-saved-filter-groups
+      (quote (("default"
+               ("dired" (mode . dired-mode))
+               ("org" (name . "^.*org$"))
+               ("web" (or (mode . web-mode) (mode . js2-mode)))
+               ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
+               ("programming" (or (mode . python-mode)
+                                  (mode . c++-mode)
+                                  (mode . elisp-mode)))
+               ("emacs" (or (name . "^\\*scratch\\*$")
+                            (name . "^\\*Messages\\*$")
+                            (name . "^\\.emacs$")))
+               ))))
+(add-hook 'ibuffer-mode-hook
+          (lambda () (ibuffer-auto-mode t)
+            (ibuffer-switch-to-saved-filter-groups "default")))
+(setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-expert t)                 ;do not comfirm delete
+               
 
 ;; imenu
 (global-set-key (kbd "s-i") 'imenu)
