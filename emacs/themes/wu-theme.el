@@ -5,6 +5,7 @@
  '(default ((t (:family "Fira Code" :background "#121212" :foreground "#93a1a1"))))
  
  ;; build in syntax
+ '(font-lock-builtin-face ((t (:foreground "honeydew4"))))
  '(font-lock-comment-face ((t (:foreground "#7a8b8b"))))
  '(font-lock-string-face ((t (:foreground "#2aa198" :weight normal))))
  '(font-lock-keyword-face ((t (:foreground "#9AB77C" :weight normal))))
@@ -37,7 +38,6 @@
  '(company-scrollbar-bg ((t (:background "#121212"))))
  '(company-scrollbar-fg ((t (:background "#121212"))))
  '(eldoc-highlight-function-argument ((t (:inherit bold :foreground "#00ee76" :underline t :weight bold))))
- 
  ;; whitespace-mode for 80 columns
  '(whitespace-line ((t (:foreground "IndianRed4"))))
  ;; show-paren-mode
