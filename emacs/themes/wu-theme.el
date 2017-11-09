@@ -18,6 +18,10 @@
  '(font-lock-preprocessor-face ((t (:foreground "#cd5555" :weight normal))))
  '(font-lock-warning-face ((t (:foreground "#FF0000" :weight bold))))
 
+ ;; compile
+ '(compilation-info ((t (:foreground "SeaGreen3" :weight bold))))
+
+
  ;; org mode
  '(org-level-1 ((t (:foreground "#c1cdcd" :weight bold))))
  '(org-level-2 ((t (:foreground "#8b8378"))))
