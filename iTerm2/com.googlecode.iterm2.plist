@@ -77,9 +77,9 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>606 127 445 152 0 0 1280 777 </string>
+	<string>606 51 445 94 0 0 1280 777 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>370 213 796 473 0 0 1280 777 </string>
+	<string>205 109 796 473 0 0 1280 777 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1280 777 0 0 1280 777 </string>
 	<key>New Bookmarks</key>
@@ -444,7 +444,7 @@
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x03 0x6A</string>
+					<string>0x14 0x6B</string>
 				</dict>
 				<key>0xf701-0x220000</key>
 				<dict>
@@ -479,7 +479,7 @@
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x03 0x6B</string>
+					<string>0x14 0x6A</string>
 				</dict>
 				<key>0xf702-0x220000</key>
 				<dict>
@@ -514,7 +514,7 @@
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x03 0x68</string>
+					<string>0x14 0x68</string>
 				</dict>
 				<key>0xf703-0x220000</key>
 				<dict>
@@ -549,7 +549,7 @@
 					<key>Action</key>
 					<integer>11</integer>
 					<key>Text</key>
-					<string>0x03 0x6C</string>
+					<string>0x14 0x6C</string>
 				</dict>
 				<key>0xf704-0x20000</key>
 				<dict>
