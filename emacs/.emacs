@@ -111,7 +111,7 @@
 ;; C-x 3: split window right
 ;; C-x o: switch to other window (rebinded to s-w)
 ;; quit window
-(global-set-key (kbd "C-q") 'delete-window)
+(global-set-key (kbd "C-c C-q") 'delete-window)
 ;; jump back from tag mark
 (global-set-key (kbd "C-`") 'pop-tag-mark)
 
@@ -228,6 +228,13 @@
 ;; delete word →: M-d
 ;; delete char ←: C-- C-d
 ;; delete char →: C-d
+;; kill untile line end: C-k
+;; kill untile sentence end: M-k
+
+;; undo
+;; undo: C-/
+;; undo: C-x u
+;; undo: C-_
 
 ;;;;;;;;;;;;;;;;
 ;; emacs info ;;
@@ -516,3 +523,17 @@
  whitespace-line-column 80
  whitespace-style       '(face lines-tail))
 (add-hook 'prog-mode-hook #'whitespace-mode)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; novel: read-only mode ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq auto-mode-alist
+      (append
+       '((".*_const\\.txt\\'" . read-only-mode))
+       auto-mode-alist))
+
+;;;;;;;;;;;;;;;;;
+;; tramp-mode  ;;
+;;;;;;;;;;;;;;;;;
+(add-hook 'tramp-mode-hook
+          (setq tramp-terminal-prompt-regexp "^\>$"))
