@@ -273,7 +273,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; basic completion based on buffer
-(global-set-key (kbd "s-=") 'dabbrev-expand)
+(global-set-key (kbd "s-\\") 'hippie-expand)
 
 ;; company-mode (company mode is enabled only in elisp-mode and go-mode)
 (add-to-list 'load-path
