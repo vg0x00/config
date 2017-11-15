@@ -169,6 +169,9 @@
 (global-set-key (kbd "s-b") 'ido-switch-buffer)
 (global-set-key (kbd "s-k") 'ido-kill-buffer)
 (global-set-key (kbd "s-S") 'ido-write-file)
+;; ido mode KEY
+;; C-f: accept what you have typed so far 
+;; C-j: drop you back to regular open file
 ;; C-v: scroll down
 ;; M-v: scroll up
 ;; C-M-v: scroll down other window 
