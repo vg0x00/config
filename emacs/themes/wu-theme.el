@@ -2,7 +2,7 @@
 
 (custom-theme-set-faces
  'wu
- '(default ((t (:family "Fira Code" :background "#121212" :foreground "#93a1a1"))))
+ '(default ((t (:family "Fira Code" :background "#121212" :foreground "wheat4"))))
  
  ;; build in syntax
  '(font-lock-builtin-face ((t (:foreground "honeydew4"))))
