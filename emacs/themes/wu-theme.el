@@ -2,7 +2,7 @@
 
 (custom-theme-set-faces
  'wu
- '(default ((t (:family "Fira Code" :background "#121212" :foreground "bisque4"))))
+ '(default ((t (:family "Fira Code" :background "#121212" :foreground "ivory4"))))
  
  ;; build in syntax
  '(font-lock-builtin-face ((t (:foreground "honeydew4"))))
@@ -27,8 +27,8 @@
  '(org-level-2 ((t (:foreground "#8b8378"))))
 
  ;; highlight
- '(highlight ((t (:background "#4a708b"))))
- '(region ((t (:background "#cdb7b5"))))
+ '(highlight ((t (:background "MistyRose2"))))
+ '(region ((t (:background "MistyRose2"))))
 
  ;; company
  '(company-preview ((t (:foreground "darkgray" :underline t))))
