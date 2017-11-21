@@ -51,6 +51,7 @@
 (column-number-mode t)
 (transient-mark-mode -1)
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (delete-selection-mode t)
 ;; delete-selection-mode
 ;; when selected, any insert will delete selection and insert
 ;; shift-select-mode
@@ -90,8 +91,8 @@
 
 ;; comment and uncomment
 (global-set-key (kbd "s-;") 'comment-dwim) ; add comment at the end
-(global-set-key (kbd "s-/") 'comment-or-uncomment-region) 
-(global-set-key (kbd "s-C-/") 'comment-line)
+(global-set-key (kbd "s-C-/") 'comment-or-uncomment-region) 
+(global-set-key (kbd "s-/") 'comment-line)
 
 ;; navigation
 ;; beginning or end of buffer: meta+< meta+>
@@ -182,6 +183,9 @@
 ;; ibuffer ;;
 ;;;;;;;;;;;;;
 
+;; revert buffer: ctrl + super + r
+(global-set-key (kbd "<C-s-268632082>") 'revert-buffer)
+
 (global-set-key (kbd "C-x b") 'ibuffer)
 ;; group ibuffer by name and mode
 (setq ibuffer-saved-filter-groups
@@ -229,10 +233,17 @@
 ;; edit
 ;; delete word ←: M-- M-d
 ;; delete word →: M-d
+;; delete word <-: s-backspace
+(global-set-key (kbd "<s-backspace>") 'backward-kill-word)
 ;; delete char ←: C-- C-d
 ;; delete char →: C-d
 ;; kill untile line end: C-k
 ;; kill untile sentence end: M-k
+;; upcase-word: 
+(global-set-key (kbd "s-6") 'upcase-word)
+(global-set-key (kbd "s-^") 'capitalize-word)
+;; query replace
+(global-set-key (kbd "s-%") 'query-replace)
 
 ;; undo
 ;; undo: C-/
@@ -269,6 +280,7 @@
 ;; C-h f: describe function
 ;; C-h v: describe variable
 ;; C-h k: describe key
+;; C-h a: apropos-command
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -539,4 +551,4 @@
 ;; tramp-mode  ;;
 ;;;;;;;;;;;;;;;;;
 (add-hook 'tramp-mode-hook
-          (setq tramp-terminal-prompt-regexp "^\>$"))
+          (setq tramp-terminal-prompt-regexp ".*\ \>$"))
