@@ -2,20 +2,20 @@
 
 (custom-theme-set-faces
  'wu
- '(default ((t (:family "Fira Code" :background "#121212" :foreground "ivory4"))))
+ '(default ((t (:family "Fira Code" :background "#161616" :foreground "wheat3"))))
  
  ;; build in syntax
  '(font-lock-builtin-face ((t (:foreground "honeydew4"))))
  '(font-lock-comment-face ((t (:foreground "#7a8b8b"))))
- '(font-lock-string-face ((t (:foreground "#2aa198" :weight normal))))
- '(font-lock-keyword-face ((t (:foreground "#9AB77C" :weight normal))))
- '(font-lock-function-name-face ((t (:foreground "#ffb5c5" :weight normal))))
- '(font-lock-comment-face ((t (:foreground "DarkSeaGreen4" :weight normal))))
- '(font-lock-doc-face ((t (:foreground "dark cyan" :weight normal))))
- '(font-lock-constant-face ((t (:foreground "#cd919e" :weight normal))))
- '(font-lock-variable-name-face ((t (:foreground "#cdaa7d" :weight normal))))
- '(font-lock-type-face ((t (:foreground "#96cdcd" :weight normal))))
- '(font-lock-preprocessor-face ((t (:foreground "#cd5555" :weight normal))))
+ '(font-lock-string-face ((t (:foreground "#2aa198"))))
+ '(font-lock-keyword-face ((t (:foreground "#9AB77C"))))
+ '(font-lock-function-name-face ((t (:foreground "#ffb5c5"))))
+ '(font-lock-comment-face ((t (:foreground "gray50"))))
+ '(font-lock-doc-face ((t (:foreground "dark cyan"))))
+ '(font-lock-constant-face ((t (:foreground "#cd919e"))))
+ '(font-lock-variable-name-face ((t (:foreground "#cdaa7d"))))
+ '(font-lock-type-face ((t (:foreground "#96cdcd"))))
+ '(font-lock-preprocessor-face ((t (:foreground "#cd5555"))))
  '(font-lock-warning-face ((t (:foreground "#FF0000" :weight bold))))
 
  ;; compile
