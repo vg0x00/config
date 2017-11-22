@@ -35,7 +35,7 @@
   (global-linum-mode -1)
   (setq linum-format "%3d"))
 
-(set-face-attribute 'default nil :font "Fira Code Retina-13")
+(set-face-attribute 'default nil :font "Fira Code Retina-11.5")
 
 ;; balance parentheses - show-paren-mode
 (show-paren-mode t)
@@ -91,7 +91,6 @@
 
 ;; comment and uncomment
 (global-set-key (kbd "s-;") 'comment-dwim) ; add comment at the end
-(global-set-key (kbd "s-C-/") 'comment-or-uncomment-region) 
 (global-set-key (kbd "s-/") 'comment-line)
 
 ;; navigation
@@ -112,7 +111,7 @@
 ;; C-x 3: split window right
 ;; C-x o: switch to other window (rebinded to s-w)
 ;; quit window
-(global-set-key (kbd "C-c C-q") 'delete-window)
+;; (global-set-key (kbd "C-c C-q") 'delete-window) 
 ;; jump back from tag mark
 (global-set-key (kbd "C-`") 'pop-tag-mark)
 
@@ -122,10 +121,11 @@
 (winner-mode t)
 
 ;; window navigation
-(global-set-key (kbd "<s-C-left>") 'windmove-left)
-(global-set-key (kbd "<s-C-right>") 'windmove-right)
-(global-set-key (kbd "<s-C-up>") 'windmove-up)
-(global-set-key (kbd "<s-C-down>") 'windmove-down)
+;; cause there can only be two windows, so disable window navigation keybindings.
+;; (global-set-key (kbd "<C-s-268632091>") 'windmove-up)
+;; (global-set-key (kbd "C-s-;") 'windmove-left)
+;; (global-set-key (kbd "C-s-'") 'windmove-right)
+;; (global-set-key (kbd "C-s-/") 'windmove-down)
 
 
 ;;;;;;;;;;;;
@@ -140,6 +140,10 @@
 ;; search
 ;; forward: c-s
 ;; backward: c-r
+(global-set-key (kbd "s-n") 'forward-paragraph)
+(global-set-key (kbd "s-p") 'backward-paragraph)
+(global-set-key (kbd "s-b") 'left-word)
+(global-set-key (kbd "s-f") 'right-word)
 
 ;;;;;;;;;;;;;;
 ;; bookmark ;;
@@ -151,11 +155,11 @@
 ;; C-x r s: bookmark a region
 ;; C-x r i: insert region by single mark
 ;; jump between marks: c-x c-x
-(global-set-key (kbd "<s-left>") 'left-word)
-(global-set-key (kbd "<s-right>") 'right-word)
-(global-set-key (kbd "<s-up>") 'backward-paragraph)
-(global-set-key (kbd "<s-down>") 'forward-paragraph)
-;jump backward to balanced expression, like {}, ""
+;; (global-set-key (kbd "<s-left>") 'left-word)
+;; (global-set-key (kbd "<s-right>") 'right-word)
+;; (global-set-key (kbd "<s-up>") 'backward-paragraph)
+;; (global-set-key (kbd "<s-down>") 'forward-paragraph)
+;; ;jump backward to balanced expression, like {}, ""
 (global-set-key (kbd "<s-S-left>") 'backward-sexp) 
 (global-set-key (kbd "<s-S-right>") 'forward-sexp)
 (global-set-key (kbd "s-K") 'kill-sexp) ; kill balanced expression
@@ -167,9 +171,18 @@
 ;; mark function: C-M-h
 
 ;; buffer
-(global-set-key (kbd "s-b") 'ido-switch-buffer)
-(global-set-key (kbd "s-k") 'ido-kill-buffer)
-(global-set-key (kbd "s-S") 'ido-write-file)
+(global-set-key (kbd "<escape> b") 'ido-switch-buffer)
+(global-set-key (kbd "<escape> k") 'ido-kill-buffer)
+(global-set-key (kbd "<escape> S") 'ido-write-file)
+(defun init-window ()
+  (interactive)
+  (if (> 2 (length (window-list)))
+      (split-window-horizontally)
+    nil))
+
+(init-window)
+(setq split-window-preferred-function 'nil) ;never split window
+
 ;; ido mode KEY
 ;; C-f: accept what you have typed so far 
 ;; C-j: drop you back to regular open file
@@ -220,8 +233,9 @@
 (global-set-key (kbd "s-x") 'execute-extended-command)
 
 ;; open file
-(global-set-key (kbd "s-f") 'ido-find-file)
-(global-set-key (kbd "s-F") 'ido-find-file-other-window)
+;;(global-set-key (kbd "s-f") 'ido-find-file)
+;;(global-set-key (kbd "s-F") 'ido-find-file-other-window)
+(global-set-key (kbd "<escape> f") 'ido-find-file)
 
 ;; universal paramters
 ;; C-0 - C-9: digital param
@@ -235,6 +249,7 @@
 ;; delete word →: M-d
 ;; delete word <-: s-backspace
 (global-set-key (kbd "<s-backspace>") 'backward-kill-word)
+(global-set-key (kbd "s-d") 'kill-word)
 ;; delete char ←: C-- C-d
 ;; delete char →: C-d
 ;; kill untile line end: C-k
@@ -552,3 +567,4 @@
 ;;;;;;;;;;;;;;;;;
 (add-hook 'tramp-mode-hook
           (setq tramp-terminal-prompt-regexp ".*\ \>$"))
+
