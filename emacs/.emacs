@@ -146,6 +146,9 @@
 (global-set-key (kbd "s-b") 'left-word)
 (global-set-key (kbd "s-f") 'right-word)
 
+;; occur search: show pared position list
+(global-set-key (kbd "C-S-s") 'occur)
+
 ;;;;;;;;;;;;;;
 ;; bookmark ;;
 ;;;;;;;;;;;;;;
