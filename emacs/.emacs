@@ -197,8 +197,8 @@
 ;; ibuffer ;;
 ;;;;;;;;;;;;;
 
-;; revert buffer: ctrl + super + r
-(global-set-key (kbd "<C-s-268632082>") 'revert-buffer)
+;; revert buffer
+(global-set-key (kbd "<escape> r") 'revert-buffer)
 
 (global-set-key (kbd "C-x b") 'ibuffer)
 ;; group ibuffer by name and mode
