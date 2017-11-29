@@ -77,6 +77,7 @@
               tab-always-indent nil
               c-basic-offset 2
               ;; indent-line-function 'insert-tab
+              truncate-lines t
               major-mode 'text-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
@@ -563,7 +564,7 @@
        auto-mode-alist))
 
 ;;;;;;;;;;;;;;;;;
-;; tramp-mode  ;;
+;; trmp-mode  ;;
 ;;;;;;;;;;;;;;;;;
 (add-hook 'tramp-mode-hook
           (setq tramp-terminal-prompt-regexp ".*\ \>$"))
