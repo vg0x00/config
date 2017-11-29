@@ -46,6 +46,11 @@
  '(whitespace-line ((t (:foreground "IndianRed4"))))
  ;; show-paren-mode
  '(show-paren-match-face (( t (:background "firebrick3"))))
+ ;; window spliter color
+ '(vertical-border (( t (:foreground "seashell4"))))
+ ;; version control
+ '(diff-added (( t (:foreground "#2aa198"))) 'now)
+ '(diff-removed (( t (:foreground "#cd5555"))) 'now)
 )
 
 (provide-theme 'wu)
