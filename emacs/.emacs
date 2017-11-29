@@ -569,3 +569,31 @@
 (add-hook 'tramp-mode-hook
           (setq tramp-terminal-prompt-regexp ".*\ \>$"))
 
+;;;;;;;;;;;;;;;;;;;;;
+;; version control ;;
+;;;;;;;;;;;;;;;;;;;;;
+;; diff working file
+(global-set-key (kbd "<escape> v =") 'vc-diff)
+;; diff working tree
+(global-set-key (kbd "<escape> v t") 'vc-root-diff)
+;; show pervious version file content
+(global-set-key (kbd "<escape> v p") 'vc-revision-other-window)
+;; show file history log
+(global-set-key (kbd "<escape> v l") 'vc-print-log)
+(global-set-key (kbd "<escape> v L") 'vc-print-root-log)
+;; pull and push
+(global-set-key (kbd "<escape> v u") 'vc-update) ;sync current working tree
+(global-set-key (kbd "<escape> v p") 'vc-push)
+;; show push log
+(global-set-key (kbd "<escape> v i") 'vc-log-incoming) ;what will pull
+(global-set-key (kbd "<escape> v o") 'vc-log-outgoing) ;what will push
+;; revert changes, discard all changes, can not UNDO !
+(global-set-key (kbd "<escape> v r") 'vc-revert)
+;; add file to ignore
+(global-set-key (kbd "<escape> v I") 'vc-ignore)
+;; merge
+(global-set-key (kbd "<escape> v m") 'vc-merge)
+;; remote file from working tree
+(global-set-key (kbd "<escape> v d") 'vc-delete-file)
+;; rename file
+(global-set-key (kbd "<escape> v R") 'vc-rename-file)
