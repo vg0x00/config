@@ -5,7 +5,7 @@
 # [https]
 # 	proxy = socks5://127.0.0.1:1080
 [core]
-	editor = emacs
+	editor = nvim
 [alias]
 	logg = log --format=oneline --abbrev-commit --graph
 	s = status
