@@ -252,8 +252,13 @@
 ;; delete word ←: M-- M-d
 ;; delete word →: M-d
 ;; delete word <-: s-backspace
+;; kill sentence: M-k
+;; swap word: M-t -----> word1: <> word2, <> means cursor position
 (global-set-key (kbd "<s-backspace>") 'backward-kill-word)
 (global-set-key (kbd "s-d") 'kill-word)
+(global-set-key (kbd "S-C-k") 'kill-whole-line)
+(global-set-key (kbd "s-%") 'query-replace-regexp)
+
 ;; delete char ←: C-- C-d
 ;; delete char →: C-d
 ;; kill untile line end: C-k
@@ -600,3 +605,20 @@
 (global-set-key (kbd "<escape> v d") 'vc-delete-file)
 ;; rename file
 (global-set-key (kbd "<escape> v R") 'vc-rename-file)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; regular expression in Emacs ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; default as meta character unless using \
+;; \|   alternertive
+;; \(,\) group
+;; \{,\} repeatition
+;; \sxxxx search include xxxx (emacs only)
+;; \Sxxxx search not include xxxx (emacs only)
+;; - whtiespace
+;; w word
+;; _ word and synbol
+;; .
+;; () {} [] group
+;; \,(elisp-function ...)
