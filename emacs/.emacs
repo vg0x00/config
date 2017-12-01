@@ -622,3 +622,18 @@
 ;; .
 ;; () {} [] group
 ;; \,(elisp-function ...)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; bright FIXME and NOTE ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(make-face 'font-lock-fixme-face)
+(make-face 'font-lock-note-face)
+(modify-face 'font-lock-fixme-face "firebrick3" nil nil t nil nil nil nil)
+(modify-face 'font-lock-note-face "DeepSkyBlue2" nil nil t nil nil nil nil)
+
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (font-lock-add-keywords nil
+             '(("\\<\\(FIXME\\):" 1 'font-lock-fixme-face prepend)
+               ("\\<\\(NOTE\\):" 1 'font-lock-note-face prepend)))))
