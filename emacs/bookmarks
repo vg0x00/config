@@ -1,0 +1,45 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("asm"
+ (filename . "~/Documents/org/asm.org")
+ (front-context-string . "* sections\n  * t")
+ (rear-context-string)
+ (position . 1))
+("modern_c++_const.txt"
+ (filename . "~/Documents/config/ebook_for_emacs/cs/modern_c++_const.txt")
+ (front-context-string . "How it works...\n")
+ (rear-context-string . "pointer types.\n\n")
+ (position . 14877))
+("py"
+ (filename . "~/Documents/dev/pyweb/src/app.py")
+ (front-context-string . "from flask impor")
+ (rear-context-string)
+ (position . 1))
+("git"
+ (filename . "~/Documents/org/git.org")
+ (front-context-string . "* intro\n** three")
+ (rear-context-string)
+ (position . 1))
+("goweb"
+ (filename . "~/Documents/dev/gocode/src/github.com/vg0x00/web-go/main.go")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("main"
+ (filename . "~/Documents/dev/cpp/main.cpp")
+ (front-context-string . "#include <iostre")
+ (rear-context-string)
+ (position . 1))
+("emacs"
+ (filename . "~/.emacs")
+ (front-context-string)
+ (rear-context-string . "ad-theme 'wu t)\n")
+ (position . 2426))
+("wu-theme"
+ (filename . "~/Documents/config/emacs/themes/wu-theme.el")
+ (front-context-string . ";;  '(hl-line ((")
+ (rear-context-string . "d \"#999999\"))))\n")
+ (position . 166))
+)
