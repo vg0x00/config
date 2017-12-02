@@ -637,3 +637,21 @@
             (font-lock-add-keywords nil
              '(("\\<\\(FIXME\\):" 1 'font-lock-fixme-face prepend)
                ("\\<\\(NOTE\\):" 1 'font-lock-note-face prepend)))))
+
+;; load config file
+(defun load-user-config (file-name)
+  (interactive "f")
+  "Load user config file from the default eamcs directory"
+  (load-file (expand-file-name file-name user-emacs-directory)))
+(load-user-config "code-style.el")  ; style name: vg0x00
+(setq c-default-style
+      '((java-mode . "java")
+        (awk-mode . "awk")
+        (c-mode . "vg0x00")
+        (c++-mode . "vg0x00")
+        (asm-mode . "vg0x00")
+        (other . "gnu")))
+;; (add-hook 'c++-mode-hook
+;;           (lambda ()
+;;             (c-set-style "vg0x00")))
+
