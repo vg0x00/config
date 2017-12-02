@@ -651,7 +651,3 @@
         (c++-mode . "vg0x00")
         (asm-mode . "vg0x00")
         (other . "gnu")))
-;; (add-hook 'c++-mode-hook
-;;           (lambda ()
-;;             (c-set-style "vg0x00")))
-
