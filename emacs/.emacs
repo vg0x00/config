@@ -258,6 +258,7 @@
 (global-set-key (kbd "s-d") 'kill-word)
 (global-set-key (kbd "S-C-k") 'kill-whole-line)
 (global-set-key (kbd "s-%") 'query-replace-regexp)
+(global-set-key (kbd "<S-tab>") 'indent-region)
 
 ;; delete char ←: C-- C-d
 ;; delete char →: C-d
@@ -559,7 +560,7 @@
 ;; whitespace mode ;;
 ;;;;;;;;;;;;;;;;;;;;;
 (setq-default
- whitespace-line-column 90
+ whitespace-line-column 80
  whitespace-style       '(face lines-tail))
 (add-hook 'prog-mode-hook #'whitespace-mode)
 
