@@ -31,12 +31,12 @@
 (when (window-system)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
-  (set-default-font "Fira Code")
+  ;; (set-default-font "Fira Code")
   (global-linum-mode -1)
   (setq linum-format "%3d"))
 
-(set-face-attribute 'default nil :font "Fira Code Retina-11.5")
-
+;; (set-face-attribute 'default nil :font "Fira Code Retina-11.5")
+(set-face-attribute 'default nil :font "Consolas-12")
 ;; balance parentheses - show-paren-mode
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
@@ -77,7 +77,7 @@
               tab-always-indent nil
               c-basic-offset 2
               ;; indent-line-function 'insert-tab
-              truncate-lines t
+              ;; truncate-lines t
               major-mode 'text-mode)
 (global-set-key (kbd "RET") 'newline-and-indent)
 
@@ -348,11 +348,15 @@
 ;; golang ;;
 ;;;;;;;;;;;;
 
+(setenv "GOROOT" "/usr/local/opt/go/libexec")
+(setenv "GOPATH" "/Users/vg0x00/Documents/dev/gocode")
+(add-to-list 'exec-path "/Users/vg0x00/Documents/dev/gocode/bin")
+(add-to-list 'exec-path "/usr/local/opt/go/bin")
 ;; go-mode
 (setq gofmt-command "goimports")
 (add-to-list 'load-path "/Users/vg0x00/Documents/config/emacs/elisp/go-mode.el")
 (require 'go-mode-load)
-(add-to-list 'exec-path "/Users/vg0x00/Documents/dev/gocode/bin")
+
 (add-hook 'before-save-hook 'gofmt-before-save)
 
 ;; go-eldoc
