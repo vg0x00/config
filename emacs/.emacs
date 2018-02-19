@@ -15,7 +15,9 @@
 ;;;;;;;;;;;;;;;;;;
 
 (add-to-list 'custom-theme-load-path "~/Documents/config/emacs/themes")
-(load-theme 'wu t)
+(load-theme 'wu t)                      
+;; (load-theme 'void t)
+;; (global-font-lock-mode 0)
 
 (setq initial-buffer-choice t
       initial-scratch-message nil
@@ -28,6 +30,9 @@
       org-support-shift-select t
       ring-bell-function 'ignore)
 
+(setq ido-auto-merge-work-directories-length -1)
+(global-set-key (kbd "C-+") 'dired-other-window)
+
 (when (window-system)
   (tool-bar-mode -1)
   (scroll-bar-mode -1)
@@ -35,12 +40,16 @@
   (global-linum-mode -1)
   (setq linum-format "%3d"))
 
-;; (set-face-attribute 'default nil :font "Fira Code Retina-11.5")
-(set-face-attribute 'default nil :font "Consolas-12")
+;; (set-face-attribute 'default nil :font "Fira Code Retina-12") 
+;; (set-face-attribute 'default nil :font "Consolas-12")
+(set-face-attribute 'default nil :font "Liberation Mono-11.5")
 ;; balance parentheses - show-paren-mode
 (show-paren-mode t)
 (setq show-paren-style 'parenthesis)
 (setq show-paren-delay 0)
+
+(global-hl-line-mode 1)
+(set-cursor-color "#40FF40")
 
 (ido-mode t)
 (menu-bar-mode -1)
@@ -69,13 +78,14 @@
       version-control t
 			js-indent-level 2
       python-indent-offset 2
-      auto-save-default nil)
+      auto-save-default nil
+      shift-select-mode nil)
 ;; disable auto save feature will not create file like: #filename#
 
 (setq-default indent-tabs-mode nil
-              tab-width 2
+              tab-width 4
               tab-always-indent nil
-              c-basic-offset 2
+              c-basic-offset 4
               ;; indent-line-function 'insert-tab
               ;; truncate-lines t
               major-mode 'text-mode)
@@ -89,6 +99,7 @@
 
 ;; compile
 (global-set-key (kbd "s-r") 'compile)
+(global-set-key (kbd "s-.") 'kill-compilation)
 
 ;; comment and uncomment
 (global-set-key (kbd "s-;") 'comment-dwim) ; add comment at the end
@@ -141,10 +152,10 @@
 ;; search
 ;; forward: c-s
 ;; backward: c-r
-(global-set-key (kbd "s-n") 'forward-paragraph)
-(global-set-key (kbd "s-p") 'backward-paragraph)
-(global-set-key (kbd "s-b") 'left-word)
-(global-set-key (kbd "s-f") 'right-word)
+(global-set-key (kbd "<s-down>") 'forward-paragraph)
+(global-set-key (kbd "<s-up>") 'backward-paragraph)
+(global-set-key (kbd "<s-left>") 'left-word)
+(global-set-key (kbd "<s-right>") 'right-word)
 
 ;; occur search: show pared position list
 (global-set-key (kbd "C-S-s") 'occur)
@@ -258,7 +269,7 @@
 (global-set-key (kbd "s-d") 'kill-word)
 (global-set-key (kbd "S-C-k") 'kill-whole-line)
 (global-set-key (kbd "s-%") 'query-replace-regexp)
-(global-set-key (kbd "<S-tab>") 'indent-region)
+
 
 ;; delete char ←: C-- C-d
 ;; delete char →: C-d
@@ -313,7 +324,16 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; basic completion based on buffer
-(global-set-key (kbd "s-\\") 'hippie-expand)
+;; (global-set-key (kbd "s-\\") 'hippie-expand)
+(global-set-key (kbd "s-\\") 'dabbrev-expand)
+;; (global-set-key (kbd "<tab>") 'dabbrev-expand)
+(global-set-key (kbd "<C-tab>") 'indent-region)
+(setq dabbrev-case-replace t)     
+(setq dabbrev-case-fold-search t)
+(setq dabbrev-upcase-means-case-search t)
+
+; Smooth scroll
+(setq scroll-step 3)
 
 ;; company-mode (company mode is enabled only in elisp-mode and go-mode)
 (add-to-list 'load-path
@@ -378,7 +398,8 @@
 (add-hook 'go-mode-hook
           (lambda () (progn
                        (local-set-key (kbd "C-c d") 'go-guru-describe)
-                       (local-set-key (kbd "C-c j") 'go-guru-definition)
+                       (local-set-key (kbd "C-,") 'go-guru-definition)
+                       (local-set-key (kbd "C-.") 'pop-tag-mark)
                        (local-set-key (kbd "C-c J") 'go-guru-definition-other-window)
                        ;show possible error value for selected error
                        (local-set-key (kbd "C-c e") 'go-guru-whicherrs)
@@ -564,7 +585,7 @@
 ;; whitespace mode ;;
 ;;;;;;;;;;;;;;;;;;;;;
 (setq-default
- whitespace-line-column 80
+ whitespace-line-column 90
  whitespace-style       '(face lines-tail))
 (add-hook 'prog-mode-hook #'whitespace-mode)
 
@@ -635,12 +656,12 @@
 (make-face 'font-lock-fixme-face)
 (make-face 'font-lock-note-face)
 (modify-face 'font-lock-fixme-face "firebrick3" nil nil t nil nil nil nil)
-(modify-face 'font-lock-note-face "DeepSkyBlue2" nil nil t nil nil nil nil)
+(modify-face 'font-lock-note-face "SpringGreen3" nil nil t nil nil nil nil)
 
 (add-hook 'prog-mode-hook
           (lambda ()
             (font-lock-add-keywords nil
-             '(("\\<\\(FIXME\\):" 1 'font-lock-fixme-face prepend)
+             '(("\\<\\(TODO\\):" 1 'font-lock-fixme-face prepend)
                ("\\<\\(NOTE\\):" 1 'font-lock-note-face prepend)))))
 
 ;; load config file
@@ -656,3 +677,41 @@
         (c++-mode . "vg0x00")
         (asm-mode . "vg0x00")
         (other . "gnu")))
+
+;;;;;;;;;;;;;;;
+;; Yasnippet ;;
+;;;;;;;;;;;;;;;
+
+(add-to-list 'load-path
+              "~/Documents/config/emacs/elisp/yasnippet")
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/Documents/config/emacs/elisp/yasnippet/snippets"))
+(yas-global-mode 1)
+
+
+;;;;;;;;;;;;;;;;
+;; emmet mode ;;
+;;;;;;;;;;;;;;;;
+(add-to-list 'load-path
+             "~/Documents/config/emacs/elisp/emmet-mode")
+(require 'emmet-mode)
+(global-set-key (kbd "C->") 'emmet-expand-line)
+
+
+;; test
+(add-to-list 'load-path
+             "/Users/vg0x00/Documents/config/emacs/elisp/projectile")
+(require 'projectile)
+(projectile-mode 1)
+(global-set-key (kbd "C-|") 'projectile-find-file)
+
+
+;;;;;;;;;;;;;;
+;; org mode ;;
+;;;;;;;;;;;;;;
+(eval-after-load 'org
+  '(progn 
+     (add-to-list 'org-structure-template-alist
+             '("C" "#+BEGIN_COMMENT\n?\n#+END_COMMENT" ""))))
+

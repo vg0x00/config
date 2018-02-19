@@ -2,19 +2,19 @@
 
 (custom-theme-set-faces
  'wu
- '(default ((t (:family "Fira Code" :background "#161616" :foreground "wheat3"))))
+ '(default ((t (:family "Liberation Mono" :background "#161616" :foreground "burlywood3"))))
  
  ;; build in syntax
- '(font-lock-builtin-face ((t (:foreground "honeydew4"))))
- '(font-lock-comment-face ((t (:foreground "#7a8b8b"))))
- '(font-lock-string-face ((t (:foreground "#2aa198"))))
- '(font-lock-keyword-face ((t (:foreground "#9AB77C"))))
- '(font-lock-function-name-face ((t (:foreground "#ffb5c5"))))
+ '(font-lock-builtin-face ((t (:foreground "#DAB98F"))))
+ '(font-lock-comment-face ((t (:foreground "gray50"))))
+ '(font-lock-string-face ((t (:foreground "SeaGreen4"))))
+ '(font-lock-keyword-face ((t (:foreground "DarkGoldenrod3"))))
+ '(font-lock-function-name-face ((t (:foreground "burlywood3"))))
  '(font-lock-comment-face ((t (:foreground "gray50"))))
  '(font-lock-doc-face ((t (:foreground "dark cyan"))))
- '(font-lock-constant-face ((t (:foreground "#cd919e"))))
- '(font-lock-variable-name-face ((t (:foreground "#cdaa7d"))))
- '(font-lock-type-face ((t (:foreground "#96cdcd"))))
+ '(font-lock-constant-face ((t (:foreground "burlywood3"))))
+ '(font-lock-variable-name-face ((t (:foreground "burlywood3"))))
+ '(font-lock-type-face ((t (:foreground "burlywood3"))))
  '(font-lock-preprocessor-face ((t (:foreground "#cd5555"))))
  '(font-lock-warning-face ((t (:foreground "#FF0000" :weight bold))))
 
@@ -27,7 +27,7 @@
  '(org-level-2 ((t (:foreground "#8b8378"))))
 
  ;; highlight
- '(highlight ((t (:background "MistyRose2"))))
+ '(highlight ((t (:background "blue4"))))
  '(region ((t (:background "MistyRose2"))))
 
  ;; company

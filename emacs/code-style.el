@@ -1,6 +1,6 @@
 (c-add-style "vg0x00"
              '("gnu"
-               (c-basic-offset . 2)     ; Guessed value
+               (c-basic-offset . 4)     ; Guessed value
                (c-offsets-alist
                 (access-label . 0)      ; Guessed value
                 (block-close . 0)       ; Guessed value
